@@ -15,9 +15,11 @@ const Container = styled.div`
       gap: 50px;
       align-items: center;
       @media (max-width: 1024px) {
-            margin: 5%;
+            margin: 2%;
             flex-direction: column-reverse;
             box-sizing: border-box;
+            max-width: 100%;
+            overflow-x: hidden;
       }
 `
 
@@ -33,11 +35,13 @@ const DivText = styled(motion.div)`
             0 0 40px ${colors.bleuNeon};
       border-radius: 25px;
       padding: 50px 30px;
+      box-sizing: border-box;
       animation: neonGlow 2.5s ease-in-out infinite;
       transition: backgrond-color 1s ease, color 1s ease;
 
       @media (max-width: 1024px) {
             width: 100%;
+            padding: 20px;
       }
 `
 
@@ -52,7 +56,7 @@ const DivImage = styled(motion.div)`
       align-items: center;
       justify-content: center;
       @media (max-width: 1024px) {
-            width: 100%;
+            width: 80%;
       }
 `
 

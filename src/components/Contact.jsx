@@ -153,7 +153,7 @@ const Form = styled.form`
 
 const InputBox = styled.div`
       margin: 30px 0 30px 0;
-      padding-left: 20px;
+      padding: 0 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -189,7 +189,7 @@ const H3Desktop = styled.h3`
 
 export default function Contact({ lightMode, fontMode }) {
       //State pour la popup
-      const [isOpen, setIsOpen] = useState(true)
+      const [isOpen, setIsOpen] = useState(false)
       //State pour formulaire
       const [nomPrenom, setNomPrenom] = useState('')
       const [mail, setMail] = useState('')
