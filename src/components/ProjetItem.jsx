@@ -84,7 +84,7 @@ const Video = styled.video`
 `
 
 export function ProjetItem({ lightMode, url, titre, text, annee, listLangage, isPair }) {
-      const videoSrc = `/assets/photos_projets/${url}.mp4`
+      const videoSrc = `${process.env.PUBLIC_URL}/assets/photos_projets/${url}.mp4`
 
       return (
             <Container
@@ -111,11 +111,8 @@ export function ProjetItem({ lightMode, url, titre, text, annee, listLangage, is
                               {listLangage.map((langage) => (
                                     <ImgLangage
                                           key={langage}
-                                          src={`/assets/logos/${langage}.jpg`}
+                                          src={`${process.env.PUBLIC_URL}/assets/logos/${langage}.jpg`}
                                           alt={langage}
-                                          onError={(e) => {
-                                                e.target.src = '/assets/logos/default-logo.png'
-                                          }}
                                     />
                               ))}
                         </WrapperImgLangage>
@@ -127,7 +124,7 @@ export function ProjetItem({ lightMode, url, titre, text, annee, listLangage, is
                               loop
                               muted
                               playsInline
-                              poster="/assets/photos_projets/default_projet.png"
+                              poster={`${process.env.PUBLIC_URL}/assets/photos_projets/default_projet.png`}
                               onError={(e) => {
                                     // Fallback si la vidéo ne charge pas
                                     e.target.style.display = 'none'

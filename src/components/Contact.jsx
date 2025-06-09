@@ -170,7 +170,7 @@ const DivImg = styled(motion.div)`
       height: 100vh;
       width: 40%;
       display: flex;
-      background-image: url('/assets/CV_Alternance_2025_PNG.png');
+      background-image: url(${({ $src }) => $src});
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -353,6 +353,7 @@ export default function Contact({ lightMode, fontMode }) {
                               whileInView="visible"
                               viewport={{ once: true, amount: 0.1 }}
                               transition={{ duration: 1.1, ease: 'easeOut' }}
+                              $src={`${process.env.PUBLIC_URL}/assets/CV_Alternance_2025_PNG.png`}
                         />
                   </WrapperForm>
             </Wrapper>

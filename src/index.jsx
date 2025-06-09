@@ -10,8 +10,8 @@ export const GlobalStyle = createGlobalStyle`
       }
 
     * {
-      margin:0px;
-      padding:0px;
+      margin:0;
+      padding:0;
     }
       body {
       background-color: ${({ $mode }) => ($mode === 'jour' ? colors.blanc : colors.noir)};
@@ -51,7 +51,7 @@ export const GlobalStyle = createGlobalStyle`
       font-family: 'Poppins', sans-serif;
       line-height:${({ $taille }) => ($taille === 'petit' ? '2rem' : $taille === 'normal' ? '3rem' : '4rem')};
       font-weight: bold;
-      padding: 30px;
+      margin: 30px 0 ;
       transition: all 1s ease;
       position: relative;
       font-size:${({ $taille }) => ($taille === 'petit' ? '2rem' : $taille === 'normal' ? '3rem' : '4rem')};

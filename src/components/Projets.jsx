@@ -121,7 +121,7 @@ export default function Projets({ lightMode }) {
                                     key={skill.nom}
                                     onClick={() => handleClick(skill.nom)}
                                     $isActive={skill.isActive}
-                                    $src={`/assets/logos/${skill.nom}.jpg`}
+                                    $src={`${process.env.PUBLIC_URL}/assets/logos/${skill.nom}.jpg`}
                               />
                         ))}
                   </WrapperSkills>

@@ -84,7 +84,7 @@ const Image = styled.div`
             content: '';
             position: absolute;
             inset: 8px;
-            background-image: url('/assets/moi.jpg');
+            background-image: url(${({ $src }) => $src});
             background-size: cover;
             background-position: center;
             border-radius: 50%;
@@ -126,7 +126,7 @@ export default function Presentation({ lightMode }) {
                               viewport={{ once: true, amount: 0.2 }}
                               transition={{ duration: 1.1, ease: 'easeOut' }}
                         >
-                              <Image />
+                              <Image $src={`${process.env.PUBLIC_URL}/assets/moi.jpg`} />
                         </DivImage>
                   </Container>
             </Wrapper>

@@ -62,8 +62,8 @@ export default function Footer({ lightMode }) {
                                     <ImgLink
                                           src={
                                                 lightMode === 'nuit'
-                                                      ? '/assets/icons/linkedin_blanc.png'
-                                                      : '/assets/icons/linkedin_noir.png'
+                                                      ? `${process.env.PUBLIC_URL}/assets/icons/linkedin_blanc.png`
+                                                      : `${process.env.PUBLIC_URL}/assets/icons/linkedin_noir.png`
                                           }
                                     ></ImgLink>
                               </a>
@@ -79,8 +79,8 @@ export default function Footer({ lightMode }) {
                                     <ImgLink
                                           src={
                                                 lightMode === 'nuit'
-                                                      ? '/assets/icons/email_blanc.png'
-                                                      : '/assets/icons/email_noir.png'
+                                                      ? `${process.env.PUBLIC_URL}/assets/icons/email_blanc.png`
+                                                      : `${process.env.PUBLIC_URL}/assets/icons/email_noir.png`
                                           }
                                     ></ImgLink>
                               </a>
@@ -96,8 +96,8 @@ export default function Footer({ lightMode }) {
                                     <ImgLink
                                           src={
                                                 lightMode === 'nuit'
-                                                      ? '/assets/icons/github_blanc.png'
-                                                      : '/assets/icons/github_noir.png'
+                                                      ? `${process.env.PUBLIC_URL}/assets/icons/github_blanc.png`
+                                                      : `${process.env.PUBLIC_URL}/assets/icons/github_noir.png`
                                           }
                                     ></ImgLink>
                               </a>

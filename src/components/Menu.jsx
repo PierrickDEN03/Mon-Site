@@ -107,8 +107,8 @@ export default function Menu({ lightMode, setLightMode, isOpen, fontMode, setFon
                                           className="icon"
                                           src={
                                                 lightMode === 'jour'
-                                                      ? '/assets/icons/sun_noir.png'
-                                                      : '/assets/icons/sun_blanc.png'
+                                                      ? `${process.env.PUBLIC_URL}/assets/icons/sun_noir.png`
+                                                      : `${process.env.PUBLIC_URL}/assets/icons/sun_blanc.png`
                                           }
                                     />
                                     <p>{lightMode === 'jour' ? 'Mode nuit' : 'Mode jour'}</p>
@@ -123,8 +123,8 @@ export default function Menu({ lightMode, setLightMode, isOpen, fontMode, setFon
                                           className="icon"
                                           src={
                                                 lightMode === 'jour'
-                                                      ? '/assets/icons/font_noir.png'
-                                                      : '/assets/icons/font_blanc.png'
+                                                      ? `${process.env.PUBLIC_URL}/assets/icons/font_noir.png`
+                                                      : `${process.env.PUBLIC_URL}/assets/icons/font_blanc.png`
                                           }
                                     />
                                     <p>Réglage taille texte : {fontMode}</p>
@@ -139,8 +139,8 @@ export default function Menu({ lightMode, setLightMode, isOpen, fontMode, setFon
                                           className="icon"
                                           src={
                                                 lightMode === 'jour'
-                                                      ? '/assets/icons/click_noir.png'
-                                                      : '/assets/icons/click_blanc.png'
+                                                      ? `${process.env.PUBLIC_URL}/assets/icons/click_noir.png`
+                                                      : `${process.env.PUBLIC_URL}/assets/icons/click_blanc.png`
                                           }
                                     />
                                     <p>Mode focus ({cursorMode})</p>
@@ -153,8 +153,8 @@ export default function Menu({ lightMode, setLightMode, isOpen, fontMode, setFon
                                           className="icon"
                                           src={
                                                 lightMode === 'jour'
-                                                      ? '/assets/icons/more_noir.png'
-                                                      : '/assets/icons/more_blanc.png'
+                                                      ? `${process.env.PUBLIC_URL}/assets/icons/more_noir.png`
+                                                      : `${process.env.PUBLIC_URL}/assets/icons/more_blanc.png`
                                           }
                                     />
                                     <p>Et d'autres</p>
