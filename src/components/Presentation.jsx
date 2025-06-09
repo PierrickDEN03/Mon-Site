@@ -19,7 +19,6 @@ const Container = styled.div`
             flex-direction: column-reverse;
             box-sizing: border-box;
             max-width: 100%;
-            overflow-x: hidden;
       }
 `
 
@@ -40,7 +39,7 @@ const DivText = styled(motion.div)`
       transition: backgrond-color 1s ease, color 1s ease;
 
       @media (max-width: 1024px) {
-            width: 100%;
+            width: 90%;
             padding: 20px;
       }
 `

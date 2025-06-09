@@ -26,7 +26,7 @@ const DivMenu = styled.div`
       transition: color 1s ease, background-color 1s ease, border 1s ease;
       @media (max-width: 1024px) {
             justify-content: space-between;
-            padding: 0 10px;
+            padding: 0 20px;
             margin: 0;
             box-sizing: border-box;
       }

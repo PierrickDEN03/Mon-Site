@@ -15,9 +15,8 @@ export const GlobalStyle = createGlobalStyle`
     }
       body {
       background-color: ${({ $mode }) => ($mode === 'jour' ? colors.blanc : colors.noir)};
-      transition:background-color 1s ease;
+      transition:background-color 1s ease,cursor 1s ease;
       cursor:${({ $cursor }) => ($cursor === 'normal' ? 'auto' : 'none')};
-      transition : cursor 1s ease;
       }
       @media (max-width: 1024px) {
             body{
@@ -45,7 +44,13 @@ export const GlobalStyle = createGlobalStyle`
             -webkit-background-clip: text;
             animation: auroraAnimation 8s ease infinite;
       }
-
+      @media (max-width: 768px) {
+            h1{
+                  font-size:${({ $taille }) => ($taille === 'petit' ? '2rem' : $taille === 'normal' ? '3rem' : '4rem')};
+                  line-height:${({ $taille }) =>
+                        $taille === 'petit' ? '2rem' : $taille === 'normal' ? '3rem' : '4rem'};
+            }
+      }
       h2 {
       text-align: center;
       font-family: 'Poppins', sans-serif;
@@ -118,6 +123,15 @@ export const GlobalStyle = createGlobalStyle`
                         0px 0px 35px rgba(46, 54, 143, 0.6),
                         3px 3px 12px rgba(5, 5, 12, 0.8);
                   `}
+            }
+      }
+
+      @media (max-width: 768px) {
+            h2{   
+                  font-size:${({ $taille }) =>
+                        $taille === 'petit' ? '1.5rem' : $taille === 'normal' ? '2rem' : '3rem'};
+                  line-height:${({ $taille }) =>
+                        $taille === 'petit' ? '1rem' : $taille === 'normal' ? '2rem' : '3rem'};
             }
       }
 
