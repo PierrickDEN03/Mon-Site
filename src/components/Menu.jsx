@@ -16,6 +16,7 @@ const Wrapper = styled(motion.div)`
       box-sizing: border-box;
       height: calc(100vh - 120px);
       overflow-y: auto;
+      overflow-x: hidden;
       background-color: ${({ $bgColor }) => $bgColor};
       border: solid 3px ${({ $borderColor }) => $borderColor};
       border-radius: 10px;
@@ -24,7 +25,8 @@ const Wrapper = styled(motion.div)`
 
       @media (max-width: 1024px) {
             grid-template-columns: 1fr;
-            width: 100%;
+            width: 100vw;
+            max-width: 100vw;
       }
 `
 

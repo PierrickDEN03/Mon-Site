@@ -46,7 +46,8 @@ export const GlobalStyle = createGlobalStyle`
       }
       @media (max-width: 768px) {
             h1{
-                  font-size:${({ $taille }) => ($taille === 'petit' ? '2rem' : $taille === 'normal' ? '3rem' : '4rem')};
+                  font-size:${({ $taille }) =>
+                        $taille === 'petit' ? '2rem' : $taille === 'normal' ? '2.5rem' : '3rem'};
                   line-height:${({ $taille }) =>
                         $taille === 'petit' ? '2rem' : $taille === 'normal' ? '3rem' : '4rem'};
             }
@@ -129,9 +130,9 @@ export const GlobalStyle = createGlobalStyle`
       @media (max-width: 768px) {
             h2{   
                   font-size:${({ $taille }) =>
-                        $taille === 'petit' ? '1.5rem' : $taille === 'normal' ? '2rem' : '3rem'};
+                        $taille === 'petit' ? '1.3rem' : $taille === 'normal' ? '1.8rem' : '2rem'};
                   line-height:${({ $taille }) =>
-                        $taille === 'petit' ? '1rem' : $taille === 'normal' ? '2rem' : '3rem'};
+                        $taille === 'petit' ? '2rem' : $taille === 'normal' ? '2.4rem' : '3rem'};
             }
       }
 
@@ -237,6 +238,14 @@ export const GlobalStyle = createGlobalStyle`
             color:${({ $mode }) => ($mode === 'jour' ? colors.noir : colors.blanc)};
             transition:color 1s ease, font-size 1s ease;
       }  
+      @media (max-width: 768px) {
+            h3{   
+                  font-size:${({ $taille }) =>
+                        $taille === 'petit' ? '0.9rem' : $taille === 'normal' ? '1.2rem' : '1.8rem'};
+                  line-height:${({ $taille }) =>
+                        $taille === 'petit' ? '1.5rem' : $taille === 'normal' ? '2rem' : '2.2rem'};
+            }
+      }
 
       p{
             text-align:center;
@@ -246,6 +255,14 @@ export const GlobalStyle = createGlobalStyle`
             margin:10px;
             transition:color 1s ease, font-size 1s ease;
       }  
+      @media (max-width: 768px) {
+            p{   
+                  font-size:${({ $taille }) =>
+                        $taille === 'petit' ? '0.8rem' : $taille === 'normal' ? '1rem' : '1.4rem'};
+                  line-height:${({ $taille }) =>
+                        $taille === 'petit' ? '1rem' : $taille === 'normal' ? '2.2rem' : '2rem'};
+            }
+      }
             
 
 `

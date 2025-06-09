@@ -49,7 +49,6 @@ const DivImage = styled(motion.div)`
       width: 40%;
       aspect-ratio: 1;
       border-radius: 50%;
-      overflow: visible;
       z-index: 0;
       display: flex;
       align-items: center;

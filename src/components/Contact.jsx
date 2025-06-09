@@ -287,7 +287,7 @@ export default function Contact({ lightMode, fontMode }) {
                                     $bgHover={lightMode === 'jour' ? colors.grisFonce : colors.bleu}
                                     $texteHover={lightMode === 'jour' ? colors.blanc : colors.blanc}
                                     $taille={
-                                          fontMode === 'petit' ? '0.8rem' : fontMode === 'normal' ? '1rem' : '1.5rem'
+                                          fontMode === 'petit' ? '0.8rem' : fontMode === 'normal' ? '1rem' : '1.2rem'
                                     }
                                     $tailleHeight={
                                           fontMode === 'petit' ? '1rem' : fontMode === 'normal' ? '1.5rem' : '2rem'
