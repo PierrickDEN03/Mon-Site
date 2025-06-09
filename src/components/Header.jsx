@@ -24,10 +24,9 @@ const DivMenu = styled.div`
       border: 2px solid ${({ $bgColor }) => $bgColor};
       z-index: 100;
       transition: color 1s ease, background-color 1s ease, border 1s ease;
-      background-color: green;
       @media (max-width: 1024px) {
             justify-content: space-between;
-            padding-right: 20px;
+            padding: 0 10px;
             margin: 0;
             box-sizing: border-box;
       }
@@ -55,7 +54,6 @@ const DivBtn = styled.div`
 `
 
 const DivBtnMenu = styled.div`
-      background-color: red;
       height: 50px;
       width: 50px;
       background-image: url(${({ $icon }) => $icon});
@@ -90,7 +88,7 @@ export default function Header({ lightMode, setLightMode, fontMode, setFontMode,
                         cursorMode={cursorMode}
                         setCursorMode={setCursorMode}
                   />
-                  <div style={{ padding: 0, margin: 0, backgroundColor: 'blue' }}>
+                  <div>
                         <h2>Bienvenue</h2>
                   </div>
                   <DivBtn>

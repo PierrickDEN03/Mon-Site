@@ -15,7 +15,7 @@ const Container = styled.div`
       gap: 50px;
       align-items: center;
       @media (max-width: 1024px) {
-            margin: 20px;
+            margin: 5%;
             flex-direction: column-reverse;
             box-sizing: border-box;
       }

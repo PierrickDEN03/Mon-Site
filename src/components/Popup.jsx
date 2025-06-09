@@ -82,7 +82,11 @@ export default function Popup({ isOpen, setIsOpen, fontMode }) {
                                     exit="exit"
                                     transition={{ duration: 0.5, ease: 'easeOut' }}
                               >
-                                    <img src="/assets/icons/check-mark.png" alt="check-icon" />
+                                    <img
+                                          src={`${process.env.PUBLIC_URL}/assets/icons/check-mark.png`}
+                                          alt="check-icon"
+                                    />
+
                                     <p>
                                           Votre message a bien été envoyé.
                                           <br />

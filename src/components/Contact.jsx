@@ -94,6 +94,7 @@ const Form = styled.form`
             min-height: 100px;
             border-radius: 25px;
             padding: 25px;
+            resize: none;
             transition: font-size 1s ease, line-height 1s ease;
       }
 
@@ -145,7 +146,7 @@ const Form = styled.form`
             input[type='text'],
             input[type='email'],
             textarea {
-                  min-width: 85%;
+                  width: 85%;
             }
       }
 `
@@ -188,7 +189,7 @@ const H3Desktop = styled.h3`
 
 export default function Contact({ lightMode, fontMode }) {
       //State pour la popup
-      const [isOpen, setIsOpen] = useState(false)
+      const [isOpen, setIsOpen] = useState(true)
       //State pour formulaire
       const [nomPrenom, setNomPrenom] = useState('')
       const [mail, setMail] = useState('')
