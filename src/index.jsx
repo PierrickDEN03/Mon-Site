@@ -258,7 +258,7 @@ export const GlobalStyle = createGlobalStyle`
       @media (max-width: 768px) {
             p{   
                   font-size:${({ $taille }) =>
-                        $taille === 'petit' ? '0.8rem' : $taille === 'normal' ? '1rem' : '1.4rem'};
+                        $taille === 'petit' ? '0.8rem' : $taille === 'normal' ? '1rem' : '1.3rem'};
                   line-height:${({ $taille }) =>
                         $taille === 'petit' ? '1rem' : $taille === 'normal' ? '2.2rem' : '2rem'};
             }

@@ -11,6 +11,7 @@ const Wrapper = styled.div`
       gap: 30px;
       padding: 20px 0px;
       box-sizing: border-box;
+      overflow-x: hidden;
 `
 
 const WrapperLink = styled.div`
