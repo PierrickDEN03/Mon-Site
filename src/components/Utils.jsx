@@ -36,7 +36,6 @@ export const Wrapper = styled.section`
       gap: 20px;
 
       @media (max-width: 1024px) {
-            min-height: 0px;
             gap: 20px;
             margin-bottom: 100px;
       }
