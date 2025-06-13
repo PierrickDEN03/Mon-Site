@@ -268,7 +268,7 @@ export default function Contact({ lightMode, fontMode }) {
                                     >
                                           Pour plus d'informations, vous pouvez retrouver mon CV sur le lien suivant :{' '}
                                           <a
-                                                href="/assets/CV_Alternance_2025.pdf"
+                                                href={`${process.env.PUBLIC_URL}/assets/CV_Alternance_2025.pdf`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="link"
