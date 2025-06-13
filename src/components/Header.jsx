@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { StyledButton, colors } from './Utils'
 import { useLocation } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Menu from './Menu'
 
 const DivMenu = styled.div`
@@ -34,20 +34,18 @@ const DivMenu = styled.div`
 
 const DivBtn = styled.div`
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 20px;
       padding: 10px;
       align-items: center;
       justify-content: center;
       color: ${colors.blanc};
-      flex-wrap: nowrap;
       overflow-x: auto;
       scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* Internet Explorer 10+ */
+      -ms-overflow-style: none; /* IE 10+ */
       &::-webkit-scrollbar {
             display: none; /* Chrome, Safari, Opera */
       }
-
       @media (max-width: 1400px) {
             display: none;
       }
@@ -63,14 +61,23 @@ const DivBtnMenu = styled.div`
 `
 
 export default function Header({ lightMode, setLightMode, fontMode, setFontMode, cursorMode, setCursorMode }) {
-      //State
       const [isOpen, setIsOpen] = useState(false)
-
-      //assigning location variable
       const location = useLocation()
+      const { pathname, hash } = location
 
-      //destructuring pathname from location
-      const { hash } = location
+      // Fonction pour construire le lien
+      const getLinkWithHash = (anchor) => `${pathname}${anchor}`
+
+      //Gérer le scroll automatique vers l’ancre quand le hash change
+      useEffect(() => {
+            if (hash) {
+                  const id = hash.slice(1) // enlève le #
+                  const element = document.getElementById(id)
+                  if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' })
+                  }
+            }
+      }, [hash])
 
       return (
             <DivMenu
@@ -78,7 +85,6 @@ export default function Header({ lightMode, setLightMode, fontMode, setFontMode,
                   $borderColor={lightMode === 'jour' ? colors.noir : colors.grisClair}
                   $fontColor={lightMode === 'jour' ? colors.noir : colors.blanc}
             >
-                  {/*Menu qui s'ouvre*/}
                   <Menu
                         lightMode={lightMode}
                         setLightMode={setLightMode}
@@ -96,68 +102,71 @@ export default function Header({ lightMode, setLightMode, fontMode, setFontMode,
                               $bgColor={lightMode === 'jour' ? colors.bleu : colors.blanc}
                               $fontColor={lightMode === 'jour' ? colors.blanc : colors.noir}
                               $bgHover={lightMode === 'jour' ? colors.grisFonce : colors.bleu}
-                              $texteHover={lightMode === 'jour' ? colors.blanc : colors.blanc}
+                              $texteHover={colors.blanc}
                               $taille={fontMode === 'petit' ? '0.8rem' : fontMode === 'normal' ? '1rem' : '1.5rem'}
-                              to="/#Accueil"
-                              className={hash === '' || hash === '#Accueil' ? 'active' : ''}
+                              to={getLinkWithHash('#Accueil')}
+                              className={hash === '#Accueil' || hash === '' ? 'active' : ''}
                         >
                               Accueil
                         </StyledButton>
+
                         <StyledButton
                               $bgColor={lightMode === 'jour' ? colors.bleu : colors.blanc}
                               $fontColor={lightMode === 'jour' ? colors.blanc : colors.noir}
                               $bgHover={lightMode === 'jour' ? colors.grisFonce : colors.bleu}
-                              $texteHover={lightMode === 'jour' ? colors.blanc : colors.blanc}
+                              $texteHover={colors.blanc}
                               $taille={fontMode === 'petit' ? '0.8rem' : fontMode === 'normal' ? '1rem' : '1.5rem'}
-                              to="/#Presentation"
+                              to={getLinkWithHash('#Presentation')}
                               className={hash === '#Presentation' ? 'active' : ''}
                         >
-                              Presentation
+                              Présentation
                         </StyledButton>
+
                         <StyledButton
                               $bgColor={lightMode === 'jour' ? colors.bleu : colors.blanc}
                               $fontColor={lightMode === 'jour' ? colors.blanc : colors.noir}
                               $bgHover={lightMode === 'jour' ? colors.grisFonce : colors.bleu}
-                              $texteHover={lightMode === 'jour' ? colors.blanc : colors.blanc}
+                              $texteHover={colors.blanc}
                               $taille={fontMode === 'petit' ? '0.8rem' : fontMode === 'normal' ? '1rem' : '1.5rem'}
-                              to="/#Formation"
+                              to={getLinkWithHash('#Formation')}
                               className={hash === '#Formation' ? 'active' : ''}
                         >
                               Formation
                         </StyledButton>
+
                         <StyledButton
                               $bgColor={lightMode === 'jour' ? colors.bleu : colors.blanc}
                               $fontColor={lightMode === 'jour' ? colors.blanc : colors.noir}
                               $bgHover={lightMode === 'jour' ? colors.grisFonce : colors.bleu}
-                              $texteHover={lightMode === 'jour' ? colors.blanc : colors.blanc}
+                              $texteHover={colors.blanc}
                               $taille={fontMode === 'petit' ? '0.8rem' : fontMode === 'normal' ? '1rem' : '1.5rem'}
-                              to="/#Projets"
+                              to={getLinkWithHash('#Projets')}
                               className={hash === '#Projets' ? 'active' : ''}
                         >
                               Mes projets
                         </StyledButton>
+
                         <StyledButton
                               $bgColor={lightMode === 'jour' ? colors.bleu : colors.blanc}
                               $fontColor={lightMode === 'jour' ? colors.blanc : colors.noir}
                               $bgHover={lightMode === 'jour' ? colors.grisFonce : colors.bleu}
-                              $texteHover={lightMode === 'jour' ? colors.blanc : colors.blanc}
+                              $texteHover={colors.blanc}
                               $taille={fontMode === 'petit' ? '0.8rem' : fontMode === 'normal' ? '1rem' : '1.5rem'}
-                              to="/#Contact"
+                              to={getLinkWithHash('#Contact')}
                               className={hash === '#Contact' ? 'active' : ''}
                         >
                               Me contacter
                         </StyledButton>
                   </DivBtn>
+
                   <DivBtnMenu
                         $icon={
                               lightMode === 'jour'
                                     ? `${process.env.PUBLIC_URL}/assets/icons/menu_noir.png`
                                     : `${process.env.PUBLIC_URL}/assets/icons/menu_blanc.png`
                         }
-                        onClick={() => {
-                              setIsOpen(!isOpen)
-                        }}
-                  ></DivBtnMenu>
+                        onClick={() => setIsOpen(!isOpen)}
+                  />
             </DivMenu>
       )
 }

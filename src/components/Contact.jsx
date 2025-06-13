@@ -347,7 +347,7 @@ export default function Contact({ lightMode, fontMode }) {
 
                         <DivImg
                               onClick={() => {
-                                    window.open('/assets/CV_Alternance_2025.pdf', '_blank')
+                                    window.open(`${process.env.PUBLIC_URL}/assets/CV_Alternance_2025.pdf`, '_blank')
                               }}
                               variants={slideInRight}
                               initial="hidden"
