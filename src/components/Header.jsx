@@ -59,16 +59,15 @@ const DivBtnMenu = styled.div`
       background-position: center;
       background-repeat: no-repeat;
 `
-
 export default function Header({ lightMode, setLightMode, fontMode, setFontMode, cursorMode, setCursorMode }) {
       const [isOpen, setIsOpen] = useState(false)
       const location = useLocation()
-      const { pathname, hash } = location
+      const { hash } = location
 
-      // Fonction pour construire le lien
-      const getLinkWithHash = (anchor) => `${pathname}${anchor}`
+      // Les liens ne doivent contenir que la partie ancre
+      const getLinkWithHash = (anchor) => anchor
 
-      //Gérer le scroll automatique vers l’ancre quand le hash change
+      // Scroll smooth vers l'ancre quand le hash change
       useEffect(() => {
             if (hash) {
                   const id = hash.slice(1) // enlève le #
@@ -98,65 +97,31 @@ export default function Header({ lightMode, setLightMode, fontMode, setFontMode,
                         <h2>Bienvenue</h2>
                   </div>
                   <DivBtn>
-                        <StyledButton
-                              $bgColor={lightMode === 'jour' ? colors.bleu : colors.blanc}
-                              $fontColor={lightMode === 'jour' ? colors.blanc : colors.noir}
-                              $bgHover={lightMode === 'jour' ? colors.grisFonce : colors.bleu}
-                              $texteHover={colors.blanc}
-                              $taille={fontMode === 'petit' ? '0.8rem' : fontMode === 'normal' ? '1rem' : '1.5rem'}
-                              to={getLinkWithHash('#Accueil')}
-                              className={hash === '#Accueil' || hash === '' ? 'active' : ''}
-                        >
-                              Accueil
-                        </StyledButton>
-
-                        <StyledButton
-                              $bgColor={lightMode === 'jour' ? colors.bleu : colors.blanc}
-                              $fontColor={lightMode === 'jour' ? colors.blanc : colors.noir}
-                              $bgHover={lightMode === 'jour' ? colors.grisFonce : colors.bleu}
-                              $texteHover={colors.blanc}
-                              $taille={fontMode === 'petit' ? '0.8rem' : fontMode === 'normal' ? '1rem' : '1.5rem'}
-                              to={getLinkWithHash('#Presentation')}
-                              className={hash === '#Presentation' ? 'active' : ''}
-                        >
-                              Présentation
-                        </StyledButton>
-
-                        <StyledButton
-                              $bgColor={lightMode === 'jour' ? colors.bleu : colors.blanc}
-                              $fontColor={lightMode === 'jour' ? colors.blanc : colors.noir}
-                              $bgHover={lightMode === 'jour' ? colors.grisFonce : colors.bleu}
-                              $texteHover={colors.blanc}
-                              $taille={fontMode === 'petit' ? '0.8rem' : fontMode === 'normal' ? '1rem' : '1.5rem'}
-                              to={getLinkWithHash('#Formation')}
-                              className={hash === '#Formation' ? 'active' : ''}
-                        >
-                              Formation
-                        </StyledButton>
-
-                        <StyledButton
-                              $bgColor={lightMode === 'jour' ? colors.bleu : colors.blanc}
-                              $fontColor={lightMode === 'jour' ? colors.blanc : colors.noir}
-                              $bgHover={lightMode === 'jour' ? colors.grisFonce : colors.bleu}
-                              $texteHover={colors.blanc}
-                              $taille={fontMode === 'petit' ? '0.8rem' : fontMode === 'normal' ? '1rem' : '1.5rem'}
-                              to={getLinkWithHash('#Projets')}
-                              className={hash === '#Projets' ? 'active' : ''}
-                        >
-                              Mes projets
-                        </StyledButton>
-
-                        <StyledButton
-                              $bgColor={lightMode === 'jour' ? colors.bleu : colors.blanc}
-                              $fontColor={lightMode === 'jour' ? colors.blanc : colors.noir}
-                              $bgHover={lightMode === 'jour' ? colors.grisFonce : colors.bleu}
-                              $texteHover={colors.blanc}
-                              $taille={fontMode === 'petit' ? '0.8rem' : fontMode === 'normal' ? '1rem' : '1.5rem'}
-                              to={getLinkWithHash('#Contact')}
-                              className={hash === '#Contact' ? 'active' : ''}
-                        >
-                              Me contacter
-                        </StyledButton>
+                        {['Accueil', 'Presentation', 'Formation', 'Projets', 'Contact'].map((section) => (
+                              <StyledButton
+                                    key={section}
+                                    $bgColor={lightMode === 'jour' ? colors.bleu : colors.blanc}
+                                    $fontColor={lightMode === 'jour' ? colors.blanc : colors.noir}
+                                    $bgHover={lightMode === 'jour' ? colors.grisFonce : colors.bleu}
+                                    $texteHover={colors.blanc}
+                                    $taille={
+                                          fontMode === 'petit' ? '0.8rem' : fontMode === 'normal' ? '1rem' : '1.5rem'
+                                    }
+                                    to={getLinkWithHash(`#${section}`)}
+                                    className={
+                                          hash === `#${section}` ||
+                                          (section === 'Accueil' && (hash === '' || hash === '#'))
+                                                ? 'active'
+                                                : ''
+                                    }
+                              >
+                                    {section === 'Projets'
+                                          ? 'Mes projets'
+                                          : section === 'Contact'
+                                          ? 'Me contacter'
+                                          : section}
+                              </StyledButton>
+                        ))}
                   </DivBtn>
 
                   <DivBtnMenu

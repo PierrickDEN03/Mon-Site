@@ -21,7 +21,7 @@ export default function App() {
       }, [cursorMode])
 
       return (
-            <Router>
+            <Router basename="/Mon-site">
                   <GlobalStyle $mode={lightMode} $taille={fontMode} $cursor={cursorMode} />
                   <Routes>
                         <Route
